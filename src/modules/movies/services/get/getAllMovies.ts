@@ -3,13 +3,13 @@ import { AxiosClient } from "../../../../infra/http/axios/axiosClient";
 import { isAxiosError } from "axios";
 
 // Type Guard
-import { right } from "@shared/patterns/either";
+import { right } from "@/shared/patterns/either";
 
 // Factory
-import errorFactory from "@shared/errors/factory/errorFactory";
+import errorFactory from "@/shared/errors/factory/errorFactory";
 
 // Types
-import type { GetAllMoviesResponse } from "@modules/movies/types";
+import type { GetAllMoviesResponse } from "@/modules/movies/types";
 
 export default async function getAllMovies() {
   try {

@@ -3,13 +3,13 @@ import { AxiosClient } from "../../../../infra/http/axios/axiosClient";
 import { isAxiosError } from "axios";
 
 // Type Guard
-import { type Either, right } from "@shared/patterns/either";
+import { type Either, right } from "@/shared/patterns/either";
 
 // Error
-import { ApplicationError } from "@shared/errors/base/ApplicationError";
+import { ApplicationError } from "@/shared/errors/base/ApplicationError";
 
 // Factory
-import errorFactory from "@shared/errors/factory/errorFactory";
+import errorFactory from "@/shared/errors/factory/errorFactory";
 
 // Types
 import type { GetMovieByIdPayload, GetMovieByIdResponse } from "../../types";
