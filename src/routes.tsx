@@ -19,10 +19,6 @@ const routesList: RouteObject[] = [
     element: <>Homepage</>,
   },
   {
-    path: "/movie/:id",
-    element: <>Homepage</>,
-  },
-  {
     path: "*",
     element: <>Homepage</>,
   },
