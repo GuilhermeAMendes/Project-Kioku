@@ -27,9 +27,9 @@ export type CreateMoviePayload = Omit<Movie, "id">;
 
 export type CreateMovieResponse = Movie;
 
-export type PatchMoviePayload = Partial<Omit<Movie, "id">>;
+export type PutMoviePayload = Movie;
 
-export type PatchMovieResponse = Movie;
+export type PutMovieResponse = Movie;
 
 export type DeleteMoviePayload = Pick<Movie, "id">;
 
