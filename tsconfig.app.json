@@ -13,7 +13,7 @@
       "@services/*": ["services/*"],
       "@utils/*": ["utils/*"],
       "@assets/*": ["assets/*"],
-      "@modules/*": ["modules/*"],  
+      "@modules/*": ["modules/*"],
       "@shared/*": ["shared/*"]
     },
 
@@ -33,6 +33,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src"]
 }
