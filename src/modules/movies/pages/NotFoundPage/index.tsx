@@ -1,7 +1,7 @@
 // External Library
 import { SearchX } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useNavigationHandler } from "@/shared/hooks/navigation/useNavigation";
+import { Button } from "../../../../components/ui/button";
+import { useNavigationHandler } from "../../../../shared/hooks/navigation/useNavigation";
 
 export default function NotFoundPage() {
   const { navigateTo } = useNavigationHandler();
