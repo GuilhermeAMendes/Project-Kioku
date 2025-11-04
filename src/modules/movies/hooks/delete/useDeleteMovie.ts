@@ -21,7 +21,7 @@ interface UseDeleteMovieResponse {
 }
 
 export default function useDeleteMovie(): UseDeleteMovieResponse {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<ApplicationError | null>(null);
 
   const deleteMovie = async ({ id }: DeleteMoviePayload) => {

@@ -6,6 +6,7 @@ import CatalogPage from "./modules/movies/pages/CatalogPage";
 import ShowCasePage from "./modules/movies/pages/ShowCasePage";
 import CreateMoviePage from "./modules/movies/pages/CreateMovie";
 import EditMoviePage from "./modules/movies/pages/EditMoviePage";
+import DeleteMoviePage from "./modules/movies/pages/DeleteMoviePage";
 
 const routesList: RouteObject[] = [
   {
@@ -22,7 +23,7 @@ const routesList: RouteObject[] = [
   },
   {
     path: "/delete",
-    element: <div>Delete</div>,
+    element: <DeleteMoviePage />,
   },
   {
     path: "/read",
