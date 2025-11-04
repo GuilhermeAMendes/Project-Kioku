@@ -3,6 +3,7 @@ import { type RouteObject, useRoutes } from "react-router-dom";
 
 // Pages
 import CatalogPage from "./modules/movies/pages/CatalogPage";
+import ShowCasePage from "./modules/movies/pages/ShowCasePage";
 
 const routesList: RouteObject[] = [
   {
@@ -23,7 +24,7 @@ const routesList: RouteObject[] = [
   },
   {
     path: "/read",
-    element: <div>Read</div>,
+    element: <ShowCasePage />,
   },
   {
     path: "*",
