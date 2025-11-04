@@ -7,6 +7,7 @@ import ShowCasePage from "./modules/movies/pages/ShowCasePage";
 import CreateMoviePage from "./modules/movies/pages/CreateMovie";
 import EditMoviePage from "./modules/movies/pages/EditMoviePage";
 import DeleteMoviePage from "./modules/movies/pages/DeleteMoviePage";
+import NotFoundPage from "./modules/movies/pages/NotFoundPage";
 
 const routesList: RouteObject[] = [
   {
@@ -31,7 +32,7 @@ const routesList: RouteObject[] = [
   },
   {
     path: "*",
-    element: <div>Not Found</div>,
+    element: <NotFoundPage />,
   },
 ];
 
