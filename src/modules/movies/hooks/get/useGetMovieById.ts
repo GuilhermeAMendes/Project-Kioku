@@ -14,25 +14,17 @@ import { isLeft } from "@/shared/patterns/either";
 // Types
 import type { Movie } from "../../types";
 
-interface UseGetMovieByIdPayload {
-  id: string;
-}
-
 interface UseGetMovieByIdResponse {
-  movie: Movie | null;
+  getMovie: (id: string) => Promise<Movie | null>;
   isLoading: boolean;
   error: ApplicationError | null;
-  refetch: () => void;
 }
 
-export default function useGetMovieById({
-  id,
-}: UseGetMovieByIdPayload): UseGetMovieByIdResponse {
-  const [movie, setMovie] = useState<Movie | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+export default function useGetMovieById(): UseGetMovieByIdResponse {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<ApplicationError | null>(null);
 
-  const loadMovie = useCallback(async () => {
+  const getMovie = useCallback(async (id: string) => {
     setIsLoading(true);
     setError(null);
 
@@ -40,25 +32,20 @@ export default function useGetMovieById({
 
     if (isLeft(result)) {
       setError(result.value);
-      toast.error("Erro ao restaurar filme", {
+      toast.error("Erro ao buscar filme", {
         description: result.value.message,
       });
       setIsLoading(false);
-      return;
+      return null;
     }
 
-    setMovie(result.value);
     setIsLoading(false);
+    return result.value;
   }, []);
 
-  useEffect(() => {
-    loadMovie();
-  }, [id, loadMovie]);
-
   return {
-    movie,
+    getMovie,
     isLoading,
     error,
-    refetch: loadMovie,
   };
 }

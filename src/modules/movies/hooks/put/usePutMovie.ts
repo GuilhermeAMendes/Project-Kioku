@@ -21,7 +21,7 @@ interface UsePutMovieResponse {
 }
 
 export default function usePutMovie(): UsePutMovieResponse {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<ApplicationError | null>(null);
 
   const updateMovie = async (payload: PutMoviePayload) => {

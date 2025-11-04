@@ -118,7 +118,7 @@ export default function CreateMoviePage() {
                     <Input
                       placeholder="Clube da Luta"
                       {...field}
-                      disabled={!isLoading}
+                      disabled={isLoading}
                     />
                   </FormControl>
                   <FormMessage />
@@ -134,7 +134,7 @@ export default function CreateMoviePage() {
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
-                    disabled={!isLoading}
+                    disabled={isLoading}
                   >
                     <FormControl>
                       <SelectTrigger>
@@ -166,7 +166,7 @@ export default function CreateMoviePage() {
                       maxLength={4}
                       placeholder="1999"
                       {...field}
-                      disabled={!isLoading}
+                      disabled={isLoading}
                     />
                   </FormControl>
                   <FormMessage />
@@ -174,11 +174,9 @@ export default function CreateMoviePage() {
               )}
             />
             <div className="flex flex-col-reverse sm:flex-row gap-2">
-              <Button type="submit" className="w-full" disabled={!isLoading}>
-                {!isLoading && (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                )}
-                {!isLoading ? "Criando..." : "Criar Filme"}
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                {isLoading ? "Criando..." : "Criar Filme"}
               </Button>
             </div>
           </form>

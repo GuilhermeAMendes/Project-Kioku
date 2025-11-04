@@ -5,6 +5,7 @@ import { type RouteObject, useRoutes } from "react-router-dom";
 import CatalogPage from "./modules/movies/pages/CatalogPage";
 import ShowCasePage from "./modules/movies/pages/ShowCasePage";
 import CreateMoviePage from "./modules/movies/pages/CreateMovie";
+import EditMoviePage from "./modules/movies/pages/EditMoviePage";
 
 const routesList: RouteObject[] = [
   {
@@ -17,7 +18,7 @@ const routesList: RouteObject[] = [
   },
   {
     path: "/update",
-    element: <div>Update</div>,
+    element: <EditMoviePage />,
   },
   {
     path: "/delete",
