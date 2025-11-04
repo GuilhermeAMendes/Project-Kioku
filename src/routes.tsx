@@ -1,10 +1,13 @@
 // External library
 import { type RouteObject, useRoutes } from "react-router-dom";
 
+// Pages
+import CatalogPage from "./modules/movies/pages/CatalogPage";
+
 const routesList: RouteObject[] = [
   {
     path: "/",
-    element: <div>Home</div>,
+    element: <CatalogPage />,
   },
   {
     path: "/create",
