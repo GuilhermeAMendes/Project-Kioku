@@ -12,6 +12,7 @@ import {
 } from "../../../../components/ui/alert";
 import { MovieCardDetail } from "../../components/cards/MovieCardDetail";
 import { MovieCardDetailSkeleton } from "../../components/skeletons/MovieCardDetailSkeleton";
+import { CancelButton } from "../../components/buttons/CancelButton";
 
 export default function ShowCasePage() {
   const { movies, error, isLoading } = useGetAllMovies();
@@ -65,12 +66,14 @@ export default function ShowCasePage() {
 
   return (
     <div>
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold tracking-tight">Meus Filmes</h1>
-        <p>
-          Aqui está o histórico de todos os filmes que você registrou na
-          plataforma.
-        </p>
+      <div className="mb-6 flex justify-between items-center">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">Meus Filmes</h1>
+          <p className="text-muted-foreground">
+            Aqui está o histórico de todos os filmes que você registrou...
+          </p>
+        </div>
+        <CancelButton />
       </div>
       <div>{renderContent()}</div>
     </div>
