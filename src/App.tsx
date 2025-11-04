@@ -7,12 +7,16 @@ import AppRoutes from "./routes";
 // Components
 import { Header } from "./components/structure/Header";
 import { Footer } from "./components/structure/Footer";
+import { AppNavigation } from "./components/structure/AppNavigation";
 
 export default function App() {
   return (
     <Router>
       <Header />
-      <AppRoutes />
+      <main>
+        <AppNavigation />
+        <AppRoutes />
+      </main>
       <Footer />
     </Router>
   );

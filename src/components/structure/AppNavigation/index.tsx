@@ -1,5 +1,5 @@
 // External Library
-import { cn } from "@/lib/utils";
+import { cn } from "../../../lib/utils";
 import { Link, useLocation } from "react-router-dom";
 
 // Constants
@@ -20,7 +20,7 @@ export function AppNavigation() {
         return (
           <Link
             key={link.href}
-            href={link.href}
+            to={link.href}
             className={cn(
               "text-lg font-medium transition-colors hover:text-primary",
               isActive
