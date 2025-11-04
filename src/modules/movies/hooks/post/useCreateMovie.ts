@@ -21,7 +21,7 @@ interface UseCreateMovieResponse {
 }
 
 export default function useCreateMovie(): UseCreateMovieResponse {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<ApplicationError | null>(null);
 
   const createMovie = async (payload: CreateMoviePayload) => {

@@ -14,7 +14,7 @@ export interface Movie {
   id: string;
   name: string;
   genre: Genre;
-  year: number;
+  year: string;
 }
 
 export type GetAllMoviesResponse = Movie[];
