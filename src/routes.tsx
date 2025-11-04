@@ -4,23 +4,27 @@ import { type RouteObject, useRoutes } from "react-router-dom";
 const routesList: RouteObject[] = [
   {
     path: "/",
-    element: <>Homepage</>,
+    element: <div>Home</div>,
   },
   {
     path: "/create",
-    element: <>Homepage</>,
+    element: <div>Create</div>,
   },
   {
     path: "/update",
-    element: <>Homepage</>,
+    element: <div>Update</div>,
   },
   {
     path: "/delete",
-    element: <>Homepage</>,
+    element: <div>Delete</div>,
+  },
+  {
+    path: "/read",
+    element: <div>Read</div>,
   },
   {
     path: "*",
-    element: <>Homepage</>,
+    element: <div>Not Found</div>,
   },
 ];
 
