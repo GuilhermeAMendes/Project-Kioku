@@ -128,46 +128,48 @@ export default function EditMoviePage() {
 
   if (status === "searching") {
     return (
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <div className="flex w-full justify-between">
-            <CardTitle>Alterar Filme</CardTitle>
-            <CancelButton />
-          </div>
-          <CardDescription>
-            Digite o ID do filme que você deseja alterar.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <label htmlFor="searchId" className="text-sm font-medium">
-              ID do Filme
-            </label>
-            <Input
-              id="searchId"
-              placeholder="Digite o ID aqui..."
-              value={searchId}
-              onChange={(e) => setSearchId(e.target.value)}
-              disabled={isSearching}
-            />
-          </div>
-          <div className="flex flex-col-reverse sm:flex-row gap-2">
-            <Button
-              type="button"
-              onClick={handleSearch}
-              className="w-full"
-              disabled={isSearching}
-            >
-              {isSearching ? (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              ) : (
-                <SearchIcon className="mr-2 h-4 w-4" />
-              )}
-              {isSearching ? "Buscando..." : "Procurar"}
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+      <div>
+        <Card className="w-full max-w-4xl mx-auto">
+          <CardHeader>
+            <div className="flex w-full justify-between">
+              <CardTitle>Alterar Filme</CardTitle>
+              <CancelButton />
+            </div>
+            <CardDescription>
+              Digite o ID do filme que você deseja alterar.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <label htmlFor="searchId" className="text-sm font-medium">
+                ID do Filme
+              </label>
+              <Input
+                id="searchId"
+                placeholder="Digite o ID aqui..."
+                value={searchId}
+                onChange={(e) => setSearchId(e.target.value)}
+                disabled={isSearching}
+              />
+            </div>
+            <div className="flex flex-col-reverse sm:flex-row gap-2">
+              <Button
+                type="button"
+                onClick={handleSearch}
+                className="w-full"
+                disabled={isSearching}
+              >
+                {isSearching ? (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  <SearchIcon className="mr-2 h-4 w-4" />
+                )}
+                {isSearching ? "Buscando..." : "Procurar"}
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     );
   }
 
@@ -181,120 +183,131 @@ export default function EditMoviePage() {
 
   if (status === "notFound") {
     return (
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle>Filme Não Encontrado</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <Alert variant="destructive">
-            <TriangleAlertIcon className="h-4 w-4" />
-            <AlertTitle>Erro</AlertTitle>
-            <AlertDescription>
-              {error?.message ||
-                "Nenhum filme foi encontrado com o ID fornecido."}
-            </AlertDescription>
-          </Alert>
-          <Button
-            variant="outline"
-            className="w-full"
-            onClick={() => setStatus("searching")}
-          >
-            Tentar Novamente
-          </Button>
-        </CardContent>
-      </Card>
+      <div>
+        <Card className="w-full max-w-4xl mx-auto">
+          <CardHeader>
+            <CardTitle>Filme Não Encontrado</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <Alert variant="destructive">
+              <TriangleAlertIcon className="h-4 w-4" />
+              <AlertTitle>Erro</AlertTitle>
+              <AlertDescription>
+                {error?.message ||
+                  "Nenhum filme foi encontrado com o ID fornecido."}
+              </AlertDescription>
+            </Alert>
+            <Button
+              variant="outline"
+              className="w-full"
+              onClick={() => setStatus("searching")}
+            >
+              Tentar Novamente
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
     );
   }
 
   if (status === "editing") {
     return (
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <div className="flex w-full justify-between">
-            <CardTitle>Alterar Filme</CardTitle>
-            <CancelButton />
-          </div>
-          <CardDescription>
-            Modifique os dados do filme: {foundMovie?.name}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Nome</FormLabel>
-                    <FormControl>
-                      <Input {...field} disabled={isUpdating} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="genre"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Gênero</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                      disabled={isUpdating}
-                    >
+      <div>
+        <Card className="w-full max-w-4xl mx-auto">
+          <CardHeader>
+            <div className="flex w-full justify-between">
+              <CardTitle>Alterar Filme</CardTitle>
+              <CancelButton />
+            </div>
+            <CardDescription>
+              Modifique os dados do filme: {foundMovie?.name}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Nome</FormLabel>
                       <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Selecione um gênero" />
-                        </SelectTrigger>
+                        <Input {...field} disabled={isUpdating} />
                       </FormControl>
-                      <SelectContent>
-                        {GENRES.map((genre) => (
-                          <SelectItem key={genre} value={genre}>
-                            {genre}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="year"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Ano</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="text"
-                        maxLength={4}
-                        {...field}
-                        disabled={isUpdating}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <div className="flex flex-col-reverse sm:flex-row gap-2">
-                <Button type="submit" className="w-full" disabled={isUpdating}>
-                  {isUpdating ? (
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  ) : (
-                    <SaveIcon className="mr-2 h-4 w-4" />
+                      <FormMessage />
+                    </FormItem>
                   )}
-                  {isUpdating ? "Alterando..." : "Alterar"}
-                </Button>
-              </div>
-            </form>
-          </Form>
-        </CardContent>
-      </Card>
+                />
+                <FormField
+                  control={form.control}
+                  name="genre"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Gênero</FormLabel>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                        disabled={isUpdating}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Selecione um gênero" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {GENRES.map((genre) => (
+                            <SelectItem key={genre} value={genre}>
+                              {genre}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="year"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Ano</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="text"
+                          maxLength={4}
+                          {...field}
+                          disabled={isUpdating}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <div className="flex flex-col-reverse sm:flex-row gap-2">
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isUpdating}
+                  >
+                    {isUpdating ? (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    ) : (
+                      <SaveIcon className="mr-2 h-4 w-4" />
+                    )}
+                    {isUpdating ? "Alterando..." : "Alterar"}
+                  </Button>
+                </div>
+              </form>
+            </Form>
+          </CardContent>
+        </Card>
+      </div>
     );
   }
 

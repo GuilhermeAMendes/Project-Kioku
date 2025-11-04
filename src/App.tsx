@@ -13,15 +13,17 @@ import { Toaster } from "./components/ui/sonner";
 export default function App() {
   return (
     <Router>
-      <Header />
-      <main className="flex-1 flex flex-col">
-        <div className="container mx-auto p-4 md:p-8">
-          <AppNavigation />
-          <AppRoutes />
-        </div>
-      </main>
-      <Footer />
-      <Toaster richColors position="top-right" />
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-1 flex flex-col">
+          <div className="container mx-auto p-4 md:p-8">
+            <AppNavigation />
+            <AppRoutes />
+          </div>
+        </main>
+        <Footer />
+        <Toaster richColors position="top-right" />
+      </div>
     </Router>
   );
 }
